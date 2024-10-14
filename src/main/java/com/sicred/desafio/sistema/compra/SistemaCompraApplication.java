@@ -1,4 +1,4 @@
-package com.sicred.desafio.sistema_compra;
+package com.sicred.desafio.sistema.compra;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

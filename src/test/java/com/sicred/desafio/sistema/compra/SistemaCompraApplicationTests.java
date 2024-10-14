@@ -1,4 +1,4 @@
-package com.sicred.desafio.sistema_compra;
+package com.sicred.desafio.sistema.compra;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
