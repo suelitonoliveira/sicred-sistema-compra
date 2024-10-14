@@ -1,6 +1,6 @@
 package com.sicred.desafio.sistema.compra.model.dtos;
 
-import com.sicred.desafio.sistema.compra.model.entidades.Compra;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,10 +16,10 @@ public class ItemCompraDTO {
 
     private Long id;
 
+    @NotNull(message = "Campo idProduto obrigatório")
     private Long idProduto;
 
-    private Compra idCompra;
-
+    @NotNull(message = "Campo quantidade obrigatório")
     private BigDecimal quantidade;
 
 }

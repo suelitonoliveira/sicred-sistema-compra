@@ -26,7 +26,7 @@ public class Compra {
 
     private LocalDateTime dataHoraCompra = LocalDateTime.now();
 
-    @OneToMany(mappedBy = "compra")
+    @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL)
     private List<ItemCompra> itens = new ArrayList<>();
 
 }

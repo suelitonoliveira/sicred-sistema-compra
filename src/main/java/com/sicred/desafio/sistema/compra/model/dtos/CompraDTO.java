@@ -1,16 +1,11 @@
 package com.sicred.desafio.sistema.compra.model.dtos;
 
-import com.sicred.desafio.sistema.compra.model.entidades.ItemCompra;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -22,7 +17,8 @@ public class CompraDTO {
 
     private String cpfComprador;
 
-    private LocalDateTime dataHoraCompra = LocalDateTime.now();
+    private LocalDateTime dataHoraCompra;
 
-    private List<ItemCompra> itens = new ArrayList<>();
+    @Valid
+    private List<ItemCompraDTO> itens;
 }

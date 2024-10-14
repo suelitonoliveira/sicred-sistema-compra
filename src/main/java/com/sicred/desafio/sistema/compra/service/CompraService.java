@@ -15,7 +15,7 @@ public class CompraService {
 
 
     public CompraDTO cadastrar(CompraDTO compraDTO) {
-        Compra compra = compraRepository.save(CompraMapper.retornaCompra(compraDTO));
+        Compra compra = compraRepository.save(CompraMapper.retornaCompra(compraDTO, compraRepository));
         return CompraMapper.retornaCompraDTO(compra);
     }
 }
