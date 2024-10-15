@@ -2,6 +2,7 @@ package com.sicred.desafio.sistema.compra.controller;
 
 
 import com.sicred.desafio.sistema.compra.model.dtos.ItemCompraDTO;
+import com.sicred.desafio.sistema.compra.model.dtos.RelatorioComprasDTO;
 import com.sicred.desafio.sistema.compra.service.ItensCompraService;
 import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.validation.Valid;
@@ -31,7 +32,7 @@ public class ItensCompraController {
     @GetMapping
     public ResponseEntity<List<ItemCompraDTO>> buscarCompras(
             @Parameter(description = "CPF do comprador (deve ter no mínimo 3 caracteres) e ser válido")
-            @RequestParam(required = false)  String cpfComprador,
+            @RequestParam(required = false) String cpfComprador,
             @Parameter(description = "Nome do produto (deve ter no mínimo 3 caracteres)")
             @RequestParam(required = false) String nomeProduto,
             @Parameter(description = "Data e hora no formato ISO 8601 com fuso horário UTC, por exemplo, '2024-10-15T16:20:34.706Z'")
@@ -42,5 +43,15 @@ public class ItensCompraController {
         validarLenght(nomeProduto);
         List<ItemCompraDTO> compras = itensCompraService.buscar(cpfComprador, nomeProduto, dataInicio, dataFim);
         return ResponseEntity.ok(compras);
+    }
+
+    @GetMapping("/relatorio")
+    public ResponseEntity<List<RelatorioComprasDTO>> gerarRelatorioCompras(
+            @Parameter(description = "Data e hora no formato ISO 8601 com fuso horário UTC, por exemplo, '2024-10-15T16:20:34.706Z'")
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicio,
+            @Parameter(description = "Data e hora no formato ISO 8601 com fuso horário UTC, por exemplo, '2024-10-15T16:20:34.706Z'")
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFim) {
+        List<RelatorioComprasDTO> relatorio = itensCompraService.gerarRelatorioComprasPorPeriodo(dataInicio, dataFim);
+        return ResponseEntity.ok(relatorio);
     }
 }

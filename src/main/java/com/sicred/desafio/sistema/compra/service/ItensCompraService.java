@@ -3,6 +3,7 @@ package com.sicred.desafio.sistema.compra.service;
 import com.sicred.desafio.sistema.compra.exceptions.RecursoNaoEncontradoException;
 import com.sicred.desafio.sistema.compra.mappers.ItemCompraMapper;
 import com.sicred.desafio.sistema.compra.model.dtos.ItemCompraDTO;
+import com.sicred.desafio.sistema.compra.model.dtos.RelatorioComprasDTO;
 import com.sicred.desafio.sistema.compra.model.entidades.ItemCompra;
 import com.sicred.desafio.sistema.compra.model.repository.ItemCompraRepository;
 import com.sicred.desafio.sistema.compra.model.specifications.ItemCompraSpecification;
@@ -14,7 +15,6 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 import static com.sicred.desafio.sistema.compra.mappers.ItemCompraMapper.retornaItemCompra;
 
@@ -42,5 +42,9 @@ public class ItensCompraService {
         String cpfValidado = CpfUtils.validarCPF(cpfComprador);
         List<ItemCompra> compras = itemCompraRepository.findAll(ItemCompraSpecification.comFiltro(cpfValidado, nomeProduto, dataInicio, dataFim));
         return compras.stream().map(ItemCompraMapper::retornaItemCompraDTO).toList();
+    }
+
+    public List<RelatorioComprasDTO> gerarRelatorioComprasPorPeriodo(LocalDateTime dataInicio, LocalDateTime dataFim) {
+        return itemCompraRepository.gerarRelatorioComprasPorPeriodo(dataInicio, dataFim);
     }
 }
