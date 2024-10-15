@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -14,12 +15,24 @@ import java.math.BigDecimal;
 @Builder
 public class ItemCompraDTO {
 
-    private Long id;
 
     @NotNull(message = "Campo idProduto obrigatório")
     private Long idProduto;
 
+    @NotNull(message = "Campo nomeProduto obrigatório")
+    private String nomeProduto;
+
+    @NotNull(message = "Campo valorUnitarioProduto obrigatório")
+    private BigDecimal valorUnitarioProduto;
+
     @NotNull(message = "Campo quantidade obrigatório")
     private BigDecimal quantidade;
+
+    @NotNull(message = "Campo cpfComprador obrigatório")
+    private String cpfComprador;
+
+    @NotNull(message = "Campo dataHoraCompra obrigatório")
+    private LocalDateTime dataHoraCompra;
+
 
 }

@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tb_item_compra")
@@ -20,13 +21,15 @@ public class ItemCompra {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "id_produto")
-    private Produto produto;
+    private Long idProduto;
 
-    @ManyToOne
-    @JoinColumn(name = "id_compra")
-    private Compra compra;
+    private String nomeProduto;
+
+    private BigDecimal valorUnitarioProduto;
 
     private BigDecimal quantidade;
+
+    private String cpfComprador;
+
+    private LocalDateTime dataHoraCompra;
 }
