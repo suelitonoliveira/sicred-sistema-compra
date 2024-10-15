@@ -6,7 +6,7 @@
 - [🏛️ Arquitetura ](#-Arquitetura )
 - [🚀 Para startar o projeto](#-Iniciar)
 - [📖 Documentação-API](#-Documentação-API)
-- [🤝 Integrantes](#-Integrantes)
+- [🤝 Integrante](#-Integrante)
 
 ## 🔍 VisãoGeral
 <p>
