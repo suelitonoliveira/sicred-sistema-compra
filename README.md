@@ -46,7 +46,7 @@ Em java 17 juntamente com o framework  spring boot entre outros citados nesse du
 
 ## 📖 Documentação-API
 
-foi realizado a no render segue link do swagger:
+foi realizado deploy no render segue link do swagger:
 https://sicred-sistema-compra.onrender.com/swagger-ui/index.html
 
 
