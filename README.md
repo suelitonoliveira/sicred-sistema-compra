@@ -27,15 +27,15 @@ Em java 17 juntamente com o framework  spring boot entre outros citados nesse du
 - **Padrão Mapper:** para transformar DTO´s em entidades e vice-versa.
 
 - **Lombok:** Que é uma biblioteca que permite deixar o código mais limpo reduzindo o boilerplate por meio de anotações.
-- 
+  
 - **Banco de Dados H2 EM MEMÓRIA:** Para vacilitar os testes em qualquer ambiente optei por utilizar um banco de dados em memória
-- 
+  
 - **Dockerfile:** Para realizar deploy da aplicação no render.
-- 
+  
 - **Swagger:** Para documentação do sistema
 
 - **Specification do JPA:** Para realizar o filtro de forma mais dinâmica
-- 
+  
 - **Tratamento personalizado de Exceptions:** 
 
 
